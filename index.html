@@ -12,22 +12,31 @@
         }
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: radial-gradient(circle, #222, #111);
+            background: linear-gradient(45deg, #ff4e50, #1fddff);
             perspective: 1200px;
             overflow: hidden;
         }
+        .title {
+            font-size: 50px;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 0 #ff8800, 6px 6px 0 #ff2200;
+            margin-bottom: 20px;
+        }
         .scene {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
             transform-style: preserve-3d;
         }
         .hexagon {
-            width: 120px;
-            height: 138px;
+            width: 140px;
+            height: 160px;
             background: linear-gradient(135deg, #ff8800, #ff2200);
             display: flex;
             justify-content: center;
@@ -37,22 +46,29 @@
             color: white;
             position: relative;
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+            transition: all 0.4s ease-in-out;
             box-shadow: 0 10px 20px rgba(255, 136, 0, 0.5);
+            border: 4px solid transparent;
         }
         .hexagon:hover {
-            transform: rotateY(15deg) rotateX(10deg) scale(1.1);
-            box-shadow: 0 20px 40px rgba(255, 136, 0, 0.7);
+            transform: scale(1.1) rotateY(10deg);
+            box-shadow: 0 15px 30px rgba(255, 136, 0, 0.7);
+            border-color: rgba(255, 136, 0, 0.7);
+        }
+        .hexagon:active {
+            transform: scale(1.15) rotateY(5deg);
+            border-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 20px 40px rgba(255, 136, 0, 1);
         }
     </style>
 </head>
 <body>
+    <h1 class="title">Título 3D</h1>
     <div class="scene">
-        <div class="hexagon">Seu Texto Aqui</div>
-        <div class="hexagon">Seu Texto Aqui</div>
-        <div class="hexagon">Seu Texto Aqui</div>
-        <div class="hexagon">Seu Texto Aqui</div>
-        <div class="hexagon">Seu Texto Aqui</div>
+        <div class="hexagon">Texto 1</div>
+        <div class="hexagon">Texto 2</div>
+        <div class="hexagon">Texto 3</div>
+        <div class="hexagon">Texto 4</div>
     </div>
 </body>
 </html>
